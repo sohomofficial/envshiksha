@@ -23,6 +23,7 @@ interface Footer2Props {
     url: string;
   }[];
 }
+const currYear=new Date().getFullYear();
 
 export default function Footer({
   logo = {
@@ -31,48 +32,35 @@ export default function Footer({
     title: "Shadcnblocks.com",
     url: "https://www.shadcnblocks.com",
   },
-  tagline = "Components made easy.",
+  tagline = "Empowering students to become environmental stewards through gamified learning.",
   menuItems = [
     {
-      title: "Product",
+      title: "Platform",
       links: [
-        { text: "Overview", url: "#" },
-        { text: "Pricing", url: "#" },
-        { text: "Marketplace", url: "#" },
-        { text: "Features", url: "#" },
-        { text: "Integrations", url: "#" },
-        { text: "Pricing", url: "#" },
+        { text: "Dashboard", url: "#" },
+        { text: "Modules", url: "#" },
+        { text: "Challanges", url: "#" },
+        { text: "Leaderboard", url: "#" },
       ],
     },
     {
-      title: "Company",
+      title: "Support",
       links: [
-        { text: "About", url: "#" },
-        { text: "Team", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
-        { text: "Privacy", url: "#" },
+        { text: "Help Center", url: "#" },
+        { text: "Contact Us", url: "#" },
+        { text: "Privacy Policy", url: "#" },
+        { text: "Terms of Service", url: "#" },
       ],
     },
     {
-      title: "Resources",
+      title: "Language",
       links: [
-        { text: "Help", url: "#" },
-        { text: "Sales", url: "#" },
-        { text: "Advertise", url: "#" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { text: "Twitter", url: "#" },
-        { text: "Instagram", url: "#" },
-        { text: "LinkedIn", url: "#" },
+        { text: "English", url: "#" },
+        { text: "हिंदी", url: "#" },
       ],
     },
   ],
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
+  copyright = `© ${currYear} EnvShiksha. All rights reserved. Built with 💚 for our planet.`,
   bottomLinks = [
     { text: "Terms and Conditions", url: "#" },
     { text: "Privacy Policy", url: "#" },
@@ -82,7 +70,7 @@ export default function Footer({
     <section className="pb-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <footer>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
                 <Trees />
@@ -93,28 +81,33 @@ export default function Footer({
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold">{section.title}</h3>
-                <ul className="text-muted-foreground space-y-4">
-                  {section.links.map((link, linkIdx) => (
-                    <li
-                      key={linkIdx}
-                      className="hover:text-primary font-medium"
-                    >
-                      <a href={link.url}>{link.text}</a>
-                    </li>
-                  ))}
-                </ul>
+                  {section.title === "Language" ? (
+                    <ul className="flex gap-4">
+                      {section.links.map((link, linkIdx) => (
+                        <li key={linkIdx}>
+                          <a
+                            href={link.url}
+                            className="px-4 py-1 border rounded-lg font-medium hover:bg-secondary transition"
+                          >
+                            {link.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                  <ul className="text-muted-foreground space-y-4">
+                    {section.links.map((link, linkIdx) => (
+                      <li key={linkIdx} className="hover:text-primary font-medium">
+                        <a href={link.url}>{link.text}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
-          <div className="text-muted-foreground mt-24 flex flex-col justify-between gap-4 border-t pt-8 text-sm font-medium md:flex-row md:items-center">
-            <p>{copyright}</p>
-            <ul className="flex gap-4">
-              {bottomLinks.map((link, linkIdx) => (
-                <li key={linkIdx} className="hover:text-primary underline">
-                  <a href={link.url}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
+          <div className="text-muted-foreground mt-24 border-t pt-8 text-sm font-medium">
+            <p className="text-center">{copyright}</p>
           </div>
         </footer>
       </div>
