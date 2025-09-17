@@ -1,4 +1,5 @@
 import Feature from "@/components/landing/features";
+import Footer from "@/components/landing/footer";
 import Hero from "@/components/landing/hero";
 import Modules from "@/components/landing/modules";
 import { Nav } from "@/components/landing/nav";
@@ -12,6 +13,7 @@ export default function Home() {
         <Feature />
         <Modules />
       </main>
+      <Footer />
     </>
   );
 }
