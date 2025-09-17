@@ -48,8 +48,8 @@ export default function Footer({
       links: [
         { text: "Help Center", url: "#" },
         { text: "Contact Us", url: "#" },
-        { text: "Privacy Policy", url: "#" },
-        { text: "Terms of Service", url: "#" },
+        { text: "Privacy Policy", url: "/privacy" },
+        { text: "Terms of Service", url: "/terms" },
       ],
     },
     {
