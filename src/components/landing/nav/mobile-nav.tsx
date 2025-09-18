@@ -1,3 +1,5 @@
+import { Menu, Trees } from "lucide-react";
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -5,17 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu, Trees } from "lucide-react";
-import Link from "next/link";
-import SubMenuLink from "./sub-menu-link";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { menu } from "./nav";
+import SubMenuLink from "./sub-menu-link";
 
 interface MenuItem {
   title: string;
@@ -48,11 +42,7 @@ export default function MobileNav() {
               </SheetTitle>
             </SheetHeader>
             <div className="flex flex-col gap-6 p-4">
-              <Accordion
-                type="single"
-                collapsible
-                className="flex w-full flex-col gap-4"
-              >
+              <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
                 {menu.map((item) => renderMobileMenuItem(item))}
               </Accordion>
 

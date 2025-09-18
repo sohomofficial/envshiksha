@@ -23,7 +23,7 @@ interface Footer2Props {
     url: string;
   }[];
 }
-const currYear=new Date().getFullYear();
+const currYear = new Date().getFullYear();
 
 export default function Footer({
   logo = {
@@ -81,20 +81,20 @@ export default function Footer({
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
                 <h3 className="mb-4 font-bold">{section.title}</h3>
-                  {section.title === "Language" ? (
-                    <ul className="flex gap-4">
-                      {section.links.map((link, linkIdx) => (
-                        <li key={linkIdx}>
-                          <a
-                            href={link.url}
-                            className="px-4 py-1 border rounded-lg font-medium hover:bg-secondary transition"
-                          >
-                            {link.text}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
+                {section.title === "Language" ? (
+                  <ul className="flex gap-4">
+                    {section.links.map((link, linkIdx) => (
+                      <li key={linkIdx}>
+                        <a
+                          href={link.url}
+                          className="hover:bg-secondary rounded-lg border px-4 py-1 font-medium transition"
+                        >
+                          {link.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
                   <ul className="text-muted-foreground space-y-4">
                     {section.links.map((link, linkIdx) => (
                       <li key={linkIdx} className="hover:text-primary font-medium">

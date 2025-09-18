@@ -1,8 +1,8 @@
 // components/CustomSignInForm.tsx
 "use client";
-import { useState } from "react";
 import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CustomSignInForm() {
   const router = useRouter();
@@ -34,11 +34,7 @@ export default function CustomSignInForm() {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="email"
-      />
+      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" />
       <input
         value={password}
         onChange={(e) => setPassword(e.target.value)}

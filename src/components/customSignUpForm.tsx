@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { useSignUp } from "@clerk/nextjs";
+import { Eye, EyeOff } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
@@ -13,8 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Eye, EyeOff } from "lucide-react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function CustomSignUpForm() {
   const { signUp, isLoaded, setActive } = useSignUp();
@@ -69,9 +69,7 @@ export default function CustomSignUpForm() {
       }
     } catch (error: any) {
       console.log(JSON.stringify(error, null, 2));
-      setError(
-        error.errors[0]?.message || "Something went wrong in verify function"
-      );
+      setError(error.errors[0]?.message || "Something went wrong in verify function");
     }
   }
 
@@ -81,9 +79,7 @@ export default function CustomSignUpForm() {
         <Card className="w-[350px]">
           <CardHeader>
             <CardTitle>Create an account</CardTitle>
-            <CardDescription>
-              Enter your email below to create your account
-            </CardDescription>
+            <CardDescription>Enter your email below to create your account</CardDescription>
           </CardHeader>
           <form onSubmit={submit}>
             <CardContent className="space-y-4">
@@ -118,7 +114,7 @@ export default function CustomSignUpForm() {
                     type="button"
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-1/2 -translate-y-1/2"
+                    className="absolute top-1/2 right-2 -translate-y-1/2"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -137,9 +133,7 @@ export default function CustomSignUpForm() {
         <Card className="w-[350px]">
           <CardHeader>
             <CardTitle>Verify your email</CardTitle>
-            <CardDescription>
-              We've sent a verification code to your email
-            </CardDescription>
+            <CardDescription>We've sent a verification code to your email</CardDescription>
           </CardHeader>
           <form onSubmit={verify}>
             <CardContent className="space-y-4">

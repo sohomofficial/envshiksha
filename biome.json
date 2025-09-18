@@ -12,7 +12,10 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 100,
+    "attributePosition": "auto"
   },
   "linter": {
     "enabled": true,
@@ -20,6 +23,12 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "style": {
+        "useImportType": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
       }
     },
     "domains": {
@@ -32,6 +41,13 @@
       "source": {
         "organizeImports": "on"
       }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "es5"
     }
   }
 }

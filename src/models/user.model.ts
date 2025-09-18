@@ -18,7 +18,7 @@ const UserSchema: Schema<IUser> = new Schema(
       enum: ["student", "teacher", "admin"],
       default: "student",
     },
-    classGrp: {type: String, enum: ["1-5", "6-10", "11-12", "UG"], default: "1-5"},
+    classGrp: { type: String, enum: ["1-5", "6-10", "11-12", "UG"], default: "1-5" },
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
   },

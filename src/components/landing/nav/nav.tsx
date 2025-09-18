@@ -9,7 +9,7 @@ import {
   Recycle,
   Trees,
 } from "lucide-react";
-
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import MobileNav from "./mobile-nav";
 import SubMenuLink from "./sub-menu-link";
-import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -39,29 +38,25 @@ export const menu: MenuItem[] = [
     items: [
       {
         title: "Climate Change",
-        description:
-          "Understanding global warming, greenhouse effects, and climate solutions",
+        description: "Understanding global warming, greenhouse effects, and climate solutions",
         icon: <Earth className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Waste Management",
-        description:
-          "Learn about recycling, composting, and sustainable waste practices",
+        description: "Learn about recycling, composting, and sustainable waste practices",
         icon: <Recycle className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Water Conservation",
-        description:
-          "Discover water cycle, pollution prevention, and conservation methods",
+        description: "Discover water cycle, pollution prevention, and conservation methods",
         icon: <Droplets className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Biodiversity",
-        description:
-          "Explore ecosystems, species protection, and habitat conservation",
+        description: "Explore ecosystems, species protection, and habitat conservation",
         icon: <Leaf className="size-5 shrink-0" />,
         url: "#",
       },
@@ -113,15 +108,11 @@ export default function Nav() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Trees />
-              <span className="text-lg font-semibold tracking-tighter">
-                EnvShiksha
-              </span>
+              <span className="text-lg font-semibold tracking-tighter">EnvShiksha</span>
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
+                <NavigationMenuList>{menu.map((item) => renderMenuItem(item))}</NavigationMenuList>
               </NavigationMenu>
             </div>
           </div>
