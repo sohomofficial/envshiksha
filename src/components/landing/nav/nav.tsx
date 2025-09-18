@@ -1,3 +1,5 @@
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import {
   BarChartBig,
   Book,
@@ -9,7 +11,8 @@ import {
   Recycle,
   Trees,
 } from "lucide-react";
-
+import Link from "next/link";
+import ThemeToggleButton from "@/components/theme-toggle-button";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,7 +24,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import MobileNav from "./mobile-nav";
 import SubMenuLink from "./sub-menu-link";
-import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -39,29 +41,25 @@ export const menu: MenuItem[] = [
     items: [
       {
         title: "Climate Change",
-        description:
-          "Understanding global warming, greenhouse effects, and climate solutions",
+        description: "Understanding global warming, greenhouse effects, and climate solutions",
         icon: <Earth className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Waste Management",
-        description:
-          "Learn about recycling, composting, and sustainable waste practices",
+        description: "Learn about recycling, composting, and sustainable waste practices",
         icon: <Recycle className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Water Conservation",
-        description:
-          "Discover water cycle, pollution prevention, and conservation methods",
+        description: "Discover water cycle, pollution prevention, and conservation methods",
         icon: <Droplets className="size-5 shrink-0" />,
         url: "#",
       },
       {
         title: "Biodiversity",
-        description:
-          "Explore ecosystems, species protection, and habitat conservation",
+        description: "Explore ecosystems, species protection, and habitat conservation",
         icon: <Leaf className="size-5 shrink-0" />,
         url: "#",
       },
@@ -103,7 +101,8 @@ export const menu: MenuItem[] = [
   },
 ];
 
-export default function Nav() {
+export default async function Nav() {
+  const { isAuthenticated } = await auth();
   return (
     <section className="py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,25 +112,30 @@ export default function Nav() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Trees />
-              <span className="text-lg font-semibold tracking-tighter">
-                EnvShiksha
-              </span>
+              <span className="text-lg font-semibold tracking-tighter">EnvShiksha</span>
             </Link>
             <div className="flex items-center">
               <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
+                <NavigationMenuList>{menu.map((item) => renderMenuItem(item))}</NavigationMenuList>
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <Link href="/sign-in">Sign In</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link href="/sign-up">Sign Up</Link>
-            </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggleButton />
+            {!isAuthenticated ? (
+              <>
+                <Button asChild variant="outline">
+                  <Link href="/sign-in">Sign In</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/sign-up">Sign Up</Link>
+                </Button>
+              </>
+            ) : (
+              <div className="size-10 border rounded-full grid items-center justify-center shadow-xs cursor-pointer">
+                <UserButton />
+              </div>
+            )}
           </div>
         </nav>
 
