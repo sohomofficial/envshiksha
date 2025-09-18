@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Eye, EyeOff } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { getOrCreateUser } from "@/lib/auth";
 
 export default function CustomSignUpForm() {
   const { signUp, isLoaded, setActive } = useSignUp();
