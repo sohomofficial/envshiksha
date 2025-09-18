@@ -1,3 +1,5 @@
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import {
   BarChartBig,
   Book,
@@ -10,6 +12,7 @@ import {
   Trees,
 } from "lucide-react";
 import Link from "next/link";
+import ThemeToggleButton from "@/components/theme-toggle-button";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -98,7 +101,8 @@ export const menu: MenuItem[] = [
   },
 ];
 
-export default function Nav() {
+export default async function Nav() {
+  const { isAuthenticated } = await auth();
   return (
     <section className="py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,13 +120,22 @@ export default function Nav() {
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <Link href="/sign-in">Sign In</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link href="/sign-up">Sign Up</Link>
-            </Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggleButton />
+            {!isAuthenticated ? (
+              <>
+                <Button asChild variant="outline">
+                  <Link href="/sign-in">Sign In</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/sign-up">Sign Up</Link>
+                </Button>
+              </>
+            ) : (
+              <div className="size-10 border rounded-full grid items-center justify-center shadow-xs cursor-pointer">
+                <UserButton />
+              </div>
+            )}
           </div>
         </nav>
 
