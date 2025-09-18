@@ -25,10 +25,10 @@ export default function Hero() {
               />
             </div>
             <div>
-              <h1 className="mb-6 text-2xl font-bold tracking-tight text-pretty lg:text-5xl">
+              <h1 className="mb-6   lg:text-5xl  scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance ">
                 Learn, Act, and Save Our Planet
               </h1>
-              <p className="mx-auto max-w-3xl text-muted-foreground lg:text-xl">
+              <p className="mx-auto max-w-3xl text-muted-foreground lg:text-xl leading-7">
                 Join thousands of students on an interactive journey to
                 understand environmental challenges and become eco-warriors
                 through gamified learning experiences.
@@ -44,8 +44,8 @@ export default function Hero() {
               </Button>
             </div>
             <div className="mt-20 flex flex-col items-center gap-5">
-              <p className="font-medium text-muted-foreground lg:text-left">
-                Built with open-source technologies
+              <p className="leading-7 font-normal text-muted-foreground lg:text-left">
+                Built with Open Source Technologies
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <a
@@ -57,8 +57,8 @@ export default function Hero() {
                 >
                   <img
                     src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcn-ui-icon.svg"
-                    alt="shadcn/ui logo"
-                    className="h-6 saturate-0 transition-all group-hover:saturate-100"
+                    alt="nep"
+                    className="h-6 saturate-0 transition-all group-hover:saturate-150"
                   />
                 </a>
                 <a
@@ -71,7 +71,7 @@ export default function Hero() {
                   <img
                     src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/typescript-icon.svg"
                     alt="TypeScript logo"
-                    className="h-6 saturate-0 transition-all group-hover:saturate-100"
+                    className="h-6 saturate-0 transition-all group-hover:saturate-150"
                   />
                 </a>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                   <img
                     src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/react-icon.svg"
                     alt="React logo"
-                    className="h-6 saturate-0 transition-all group-hover:saturate-100"
+                    className="h-6 saturate-0 transition-all group-hover:saturate-150"
                   />
                 </a>
                 <a
@@ -98,7 +98,7 @@ export default function Hero() {
                   <img
                     src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/tailwind-icon.svg"
                     alt="Tailwind CSS logo"
-                    className="h-6 saturate-0 transition-all group-hover:saturate-100"
+                    className="h-6 saturate-0 transition-all group-hover:saturate-150"
                   />
                 </a>
               </div>
